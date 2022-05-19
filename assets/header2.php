@@ -1,8 +1,8 @@
     </head>
         <body>
-        <div id="navbar-content">
+        <div class="navbar-content">
             <nav id="navbar">
-                <ul id="navbar-list">
+                <ul class="navbar-list">
                     <li class="navbar-items">
                         <a href="<?php echo "lien.php"?>">Lien 1</a>
                     </li>

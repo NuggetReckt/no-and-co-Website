@@ -11,4 +11,5 @@ $pager = new Pager("");
         <meta name="author" content="NuggetReckt">
         <link rel="shortcut icon" href="<?php echo "assets/images/favicon.png"?>">
 
-        <link rel="stylesheet" href="<?php echo "assets/css/style.css"?>">
+        <link rel="stylesheet" href="<?php echo "assets/css/main.css"?>">
+        <script src="https://kit.fontawesome.com/edcae05278.js" crossorigin="anonymous"></script>
