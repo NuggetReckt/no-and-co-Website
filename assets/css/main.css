@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+}
+
+.navbar-content {
+    background-color: red;
+}
+
+.navbar-list {
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-items {
+    display: inline;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.navbar-items a {
+    text-decoration: none;
+}
+
+.active {
+    color: white;
+}
