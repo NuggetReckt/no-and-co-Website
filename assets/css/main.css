@@ -36,6 +36,7 @@ span, p, a, h1, h2, h3 {
 .active {
     color: #1394C3;
 }
+
 .not-active {
     color: white;
 }
