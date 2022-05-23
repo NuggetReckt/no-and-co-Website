@@ -5,6 +5,8 @@ $pager = new Pager("Matériel");
 $pager->setHeader();
 ?>
 
+
+
 <?php
 $pager->setFooter();
 ?>

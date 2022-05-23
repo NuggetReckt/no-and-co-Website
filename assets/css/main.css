@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: 0 60px;
     background-color: #1a1a1a;
 }
 
@@ -24,11 +24,12 @@ span, p, a, h1, h2, h3 {
     color: white;
     padding: 12px 14px;
     text-decoration: none;
+    font-size: 18px;
     transition: 500ms;
 }
 
 .navbar-item a:hover, .active {
-    color: rgb(69 147 192);
+    color: #1394C3;
     transition: 500ms;
 }
 
@@ -39,6 +40,11 @@ span, p, a, h1, h2, h3 {
 #top-title {
     margin: 20px 0;
     text-align: center;
+}
+
+#top-title span {
+    letter-spacing: 0.3rem;
+    font-size: 16px;
 }
 
 .footer-content {
