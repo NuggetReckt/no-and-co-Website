@@ -1,25 +1,58 @@
 <?php
 $page = basename($_SERVER["PHP_SELF"]);
 ?>
-    </head>
-        <body>
-        <div class="navbar-content">
-            <nav id="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-items">
-                        <a href="<?php echo "lien.php"?>" <?php if ($page=="index.php") {echo "class='active'";}?>>Lien 1</a>
-                    </li>
-                    <li class="navbar-items">
-                        <a href="<?php echo "lien.php"?>" <?php if ($page=="lien.php") {echo "class='active'";}?>>Lien 2</a>
-                    </li>
-                    <li class="navbar-items">
-                        <a href="<?php echo "lien.php"?>" <?php if ($page=="lien.php") {echo "class='active'";}?>>Lien 3</a>
-                    </li>
-                    <li class="navbar-items">
-                        <a href="<?php echo "lien.php"?>" <?php if ($page=="lien.php") {echo "class='active'";}?>>Lien 4</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="main-content">
-            <main>
+</head>
+<body>
+<div class="navbar-content">
+    <nav id="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a href="<?php echo "index.php" ?>" class="<?php
+                if ($page == "index.php") {
+                    echo "active";
+                } else {
+                    echo "not-active";
+                }
+                ?>">Accueil</a>
+            </li>
+            <li class="navbar-item">
+                <a href="<?php echo "a-propos.php" ?>" class="<?php
+                if ($page == "a-propos.php") {
+                    echo "active";
+                } else {
+                    echo "not-active";
+                }
+                ?>">A propos</a>
+            </li>
+            <li class="navbar-item">
+                <a href="<?php echo "projets.php" ?>" class="<?php
+                if ($page == "projets.php") {
+                    echo "active";
+                } else {
+                    echo "not-active";
+                }
+                ?>">Les projets</a>
+            </li>
+            <li class="navbar-item">
+                <a href="<?php echo "materiel.php" ?>" class="<?php
+                if ($page == "materiel.php") {
+                    echo "active";
+                } else {
+                    echo "not-active";
+                }
+                ?>">Le matériel</a>
+            </li>
+            <li class="navbar-item" id="nav-right">
+                <a href="<?php echo "login.php" ?>" class="<?php
+                if ($page == "login.php") {
+                    echo "active";
+                } else {
+                    echo "not-active";
+                }
+                ?>">Login</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="main-content">
+    <main>

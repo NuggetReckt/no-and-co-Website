@@ -1,29 +1,53 @@
 body {
     margin: 0;
+    background-color: #1a1a1a;
 }
 
-.navbar-content {
-    background-color: red;
+span, p, a, h1, h2, h3 {
+    font-family: police_custom, serif;
+    color: white;
 }
 
 .navbar-list {
-    list-style: none;
-    overflow: hidden;
-    padding: 0;
+    list-style-type: none;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.navbar-items {
-    display: inline;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+.navbar-item {
+    float: left;
 }
 
-.navbar-items a {
-    text-decoration: none;
-}
-
-.active {
+.navbar-item a {
+    display: block;
     color: white;
+    padding: 12px 14px;
+    text-decoration: none;
+    transition: 500ms;
+}
+
+.navbar-item a:hover, .active {
+    color: rgb(69 147 192);
+    transition: 500ms;
+}
+
+#nav-right {
+    float: right;
+}
+
+#top-title {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+}
+
+@font-face {
+    font-family: police_custom;
+    src: url("/assets/fonts/MusticaPro-SemiBold.otf") format("opentype");
 }

@@ -5,7 +5,7 @@ $pager = new Pager("Accueil");
 $pager->setHeader();
 ?>
                 <div id="top-title">
-                    <h1>No&Co</h1>
+                    <img src="assets/images/logo.png">
                 </div>
 <?php
 $pager->setFooter();
