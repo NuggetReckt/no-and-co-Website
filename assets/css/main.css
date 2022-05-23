@@ -6,6 +6,7 @@ body {
 span, p, a, h1, h2, h3 {
     font-family: police_custom, serif;
     color: white;
+    margin: 0;
 }
 
 .navbar-list {
@@ -21,25 +22,40 @@ span, p, a, h1, h2, h3 {
 
 .navbar-item a {
     display: block;
-    color: white;
     padding: 12px 14px;
     text-decoration: none;
     font-size: 18px;
     transition: 500ms;
 }
 
-.navbar-item a:hover, .active {
+.navbar-item a:hover {
     color: #1394C3;
     transition: 500ms;
+}
+
+.active {
+    color: #1394C3;
+}
+.not-active {
+    color: white;
 }
 
 #nav-right {
     float: right;
 }
 
-#top-title {
-    margin: 20px 0;
+.top-content {
+    padding: 300px;
+    margin: 20px auto;
     text-align: center;
+    /*background-image: url("https://play.noskillworld.fr/static/img/background.png");
+    background-size: auto;
+    background-position-y: -120px;*/
+}
+
+#top-title {
+    display: inline-block;
+    padding: 50px;
 }
 
 #top-title span {

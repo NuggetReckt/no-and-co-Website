@@ -16,13 +16,13 @@ $page = basename($_SERVER["PHP_SELF"]);
                 ?>">Accueil</a>
             </li>
             <li class="navbar-item">
-                <a href="<?php echo "a-propos.php" ?>" class="<?php
-                if ($page == "a-propos.php") {
+                <a href="<?php echo "galerie.php" ?>" class="<?php
+                if ($page == "galerie.php") {
                     echo "active";
                 } else {
                     echo "not-active";
                 }
-                ?>">A propos</a>
+                ?>">Galerie</a>
             </li>
             <li class="navbar-item">
                 <a href="<?php echo "projets.php" ?>" class="<?php
