@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteRule ^accueil$ index.php [NC]
+RewriteRule ^materiel$ materiel.php [NC]
+RewriteRule ^projets$ projets.php [NC]
+RewriteRule ^galerie$ galerie.php [NC]
+RewriteRule ^login$ login.php [NC]

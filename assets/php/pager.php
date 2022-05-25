@@ -19,7 +19,7 @@ class Pager
     function setHeader(): void
     {
         require_once "assets/header1.php";
-        echo "\n";
+        echo "\n        ";
         $this > $this->setTitle();
         echo "\n";
         require_once "assets/header2.php";

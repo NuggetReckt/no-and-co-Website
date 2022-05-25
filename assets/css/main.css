@@ -1,10 +1,12 @@
-body {
+html, body {
+    height: 100%;
     margin: 0 60px;
+    padding: 0;
     background-color: #1a1a1a;
 }
 
 span, p, a, h1, h2, h3 {
-    font-family: police_custom, serif;
+    font-family: police_custom, sans-serif;
     color: white;
     margin: 0;
 }
@@ -46,12 +48,9 @@ span, p, a, h1, h2, h3 {
 }
 
 .top-content {
-    padding: 300px;
-    margin: 20px auto;
+    padding: 300px 0;
+    margin: 10px;
     text-align: center;
-    /*background-image: url("https://play.noskillworld.fr/static/img/background.png");
-    background-size: auto;
-    background-position-y: -120px;*/
 }
 
 #top-title {
@@ -65,6 +64,8 @@ span, p, a, h1, h2, h3 {
 }
 
 .footer-content {
+    bottom: 0;
+    position: sticky;
     text-align: center;
     color: white;
     padding: 15px 0;
@@ -72,5 +73,5 @@ span, p, a, h1, h2, h3 {
 
 @font-face {
     font-family: police_custom;
-    src: url("/assets/fonts/MusticaPro-SemiBold.otf") format("opentype");
+    src: url("../fonts/MusticaPro-SemiBold.otf") format("opentype");
 }

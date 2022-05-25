@@ -1,7 +1,7 @@
 <?php
 $page = basename($_SERVER["PHP_SELF"]);
 ?>
-</head>
+    </head>
 <body>
 <div class="navbar-content">
     <nav id="navbar">
