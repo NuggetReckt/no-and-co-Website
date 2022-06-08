@@ -1,18 +1,44 @@
 <?php
 
 /**
- * @property $user_password
+ * @property $username
+ * @property $password
  */
 class Request
 {
-    function __construct($username, $password)
+
+    public bool $isLogged = False;
+
+    function __construct()
     {
         require_once "connector.php";
-        $conn = new Connector();
+    }
 
+    function login($username, $password): void
+    {
         $this->username = $username;
         $this->password = $password;
 
-        $this->user_password = mysqli_query($conn->link, "SELECT password FROM user_data WHERE username ='$this->username'");
+        $conn = new Connector();
+        $req = "SELECT password FROM user_data WHERE username ='$username'";
+
+        $user_password = $conn->mysqli->query($req, MYSQLI_USE_RESULT);
+
+        if ($user_password == $password) {
+            //header("Location: app.php");
+            $this->isLogged = True;
+            echo "Mot de passe correct.";
+        }
+        else if ($user_password =! $password) {
+            //header("location: login.php");
+            $this->isLogged = False;
+            echo "Mauvais mot de passe.";
+        }
+        else {
+            echo "Une erreur inconnue est survenue.";
+        }
+        unset($password);
+        unset($username);
+        unset($user_password);
     }
 }

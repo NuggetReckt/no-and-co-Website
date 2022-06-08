@@ -30,15 +30,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $request = new Request($username, $password);
-
-    if ($request->user_password == $password) {
-        header("Location: app.php");
-        //echo "Mot de passe correct.";
-    } else {
-        header("location: login.php");
-        echo "Mauvais mot de passe.";
-    }
+    $request = new Request();
+    $request->login($username, $password);
 }
 
 $pager->setFooter();
