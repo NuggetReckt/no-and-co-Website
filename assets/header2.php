@@ -42,6 +42,15 @@ $page = basename($_SERVER["PHP_SELF"]);
                 }
                 ?>">Le matériel</a>
             </li>
+            <li class="navbar-item">
+                <a href="<?php echo "contact.php" ?>" class="<?php
+                if ($page == "contact.php") {
+                    echo "active";
+                } else {
+                    echo "not-active";
+                }
+                ?>">Nous contacter</a>
+            </li>
             <li class="navbar-item" id="nav-right">
                 <a href="<?php echo "login.php" ?>" class="<?php
                 if ($page == "login.php") {

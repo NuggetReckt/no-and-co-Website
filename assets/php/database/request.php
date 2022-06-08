@@ -22,21 +22,22 @@ class Request
         $conn = new Connector();
         $req = "SELECT password FROM user_data WHERE username ='$username'";
 
-        $user_password = $conn->mysqli->query($req, MYSQLI_USE_RESULT);
+        $result = $conn->mysqli->query($req, MYSQLI_USE_RESULT);
 
-        if ($user_password == $password) {
-            //header("Location: app.php");
-            $this->isLogged = True;
-            echo "Mot de passe correct.";
+        while ($row = mysqli_fetch_assoc($result)) {
+            $user_password = $row['password'];
+
+            if ($password == $user_password) {
+                header("Location: https://no-an-co.com/panel.php");
+                $this->isLogged = True;
+                echo "Mot de passe correct.";
+            } else {
+                $this->isLogged = False;
+                header("location: https://no-an-co.com/login.php");
+                echo "Mauvais mot de passe ou login inconnu.";
+            }
         }
-        else if ($user_password =! $password) {
-            //header("location: login.php");
-            $this->isLogged = False;
-            echo "Mauvais mot de passe.";
-        }
-        else {
-            echo "Une erreur inconnue est survenue.";
-        }
+
         unset($password);
         unset($username);
         unset($user_password);
