@@ -13,7 +13,7 @@ class AppPager
 
     function setTitle(): void
     {
-        echo "<title>", $this->title, " - No&Co</title>";
+        echo "<title>", $this->title, " - No&Co (Admin)</title>";
     }
 
     function setHeader(): void
