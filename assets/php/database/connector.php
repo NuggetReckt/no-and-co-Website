@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @property string $password
+ * @property string $username
+ * @property string $database
+ * @property string $server
+ * @property int $port
+ * @property mysqli $mysqli
+ */
 class Connector
 {
     function __construct()
