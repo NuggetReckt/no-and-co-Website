@@ -8,7 +8,7 @@ $page = basename($_SERVER["PHP_SELF"]);
         <ul class="navbar-list">
             <li class="navbar-item">
                 <a href="<?php echo "index.php" ?>" class="<?php
-                if ($page == "index.php") {
+                if ($page == "panel.php") {
                     echo "active";
                 } else {
                     echo "not-active";
@@ -16,13 +16,8 @@ $page = basename($_SERVER["PHP_SELF"]);
                 ?>">Menu</a>
             </li>
             <li class="navbar-item" id="nav-right">
-                <a href="<?php echo "login.php" ?>" class="<?php
-                if ($page == "login.php") {
-                    echo "active";
-                } else {
-                    echo "not-active";
-                }
-                ?>">Se déconnecter</a>
+                <a href="<?php echo "login.php" ?>">
+                    Se déconnecter</a>
             </li>
         </ul>
     </nav>

@@ -6,8 +6,7 @@
  */
 class Request
 {
-
-    public bool $isLogged = False;
+    public bool $isLogged = false;
 
     function __construct()
     {
@@ -28,18 +27,18 @@ class Request
             $user_password = $row['password'];
 
             if ($password == $user_password) {
-                header("Location: https://no-an-co.com/panel.php");
-                $this->isLogged = True;
-                echo "Mot de passe correct.";
+                $this->isLogged = true;
+                //echo "Mot de passe correct.";
+
+                sleep(1);
+                header("Location: panel.php");
             } else {
-                $this->isLogged = False;
-                header("location: https://no-an-co.com/login.php");
+                $this->isLogged = false;
                 echo "Mauvais mot de passe ou login inconnu.";
             }
         }
-
-        unset($password);
         unset($username);
+        unset($password);
         unset($user_password);
     }
 }
