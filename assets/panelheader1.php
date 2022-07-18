@@ -6,5 +6,6 @@
         <meta name="author" content="NuggetReckt">
         <link rel="shortcut icon" href="<?php echo "assets/images/favicon.png"?>">
 
-        <link rel="stylesheet" href="<?php echo "panel-assets/css/main.css"?>">
+        <link rel="stylesheet" href="<?php echo "assets/css/panelmain.css"?>">
+        <link rel="stylesheet" href="<?php echo "assets/css/form.css"?>">
         <script src="https://kit.fontawesome.com/edcae05278.js" crossorigin="anonymous"></script>

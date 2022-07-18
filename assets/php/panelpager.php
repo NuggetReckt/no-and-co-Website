@@ -1,6 +1,6 @@
 <?php
 
-class AppPager
+class PanelPager
 {
     public string $title;
 
@@ -18,15 +18,15 @@ class AppPager
 
     function setHeader(): void
     {
-        require_once "panel-assets/header1.php";
+        require_once "assets/panelheader1.php";
         echo "\n        ";
         $this > $this->setTitle();
         echo "\n";
-        require_once "panel-assets/header2.php";
+        require_once "assets/panelheader2.php";
     }
 
     function setFooter(): void
     {
-        require_once "panel-assets/footer.php";
+        require_once "assets/panelfooter.php";
     }
 }

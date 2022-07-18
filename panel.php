@@ -1,7 +1,7 @@
 <?php
-require_once "panel-assets/php/pager.php";
+require_once "assets/php/panelpager.php";
 require_once "assets/php/database/request.php";
-$pager = new AppPager("Menu");
+$pager = new PanelPager("Menu");
 
 $pager->setHeader();
 
@@ -16,4 +16,4 @@ $request = new Request();
 
 <?php
 $pager->setFooter();
-?><?php
+?>
