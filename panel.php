@@ -7,9 +7,10 @@ $pager->setHeader();
 
 $request = new Request();
 
-if (!$request->isLogged) {
+//Not working
+/*if (!$request->isLogged) {
     header("Location: index.php");
-}
+}*/
 ?>
 
 
