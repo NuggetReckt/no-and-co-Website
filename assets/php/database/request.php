@@ -4,6 +4,10 @@
  * @property $username
  * @property $password
  * @property $password_confirm
+ * @property $name
+ * @property $link
+ * @property $desc
+ * @property $date
  */
 class Request
 {
@@ -61,8 +65,42 @@ class Request
         }
     }
 
-    function create_project(): void
+    function create_project($project_name, $project_link, $project_desc, $project_date): void
     {
+        $this->name = $project_name;
+        $this->link = $project_link;
+        $this->desc = $project_desc;
+        $this->date = $project_date;
 
+        $conn = new Connector();
+        $req = "INSERT INTO projects (name, link, description, date) VALUES ('$project_name', '$project_link', '$project_desc', '$project_date')";
+
+        $conn->mysqli->query($req, MYSQLI_USE_RESULT);
+
+        header("Location: message/project_created.php");
+    }
+
+    function get_projects(): void
+    {
+        $conn = new Connector();
+        $req = "SELECT * FROM projects";
+
+        $result = $conn->mysqli->query($req, MYSQLI_USE_RESULT);
+
+        while ($row = mysqli_fetch_array($result)) {
+            $name = $row['name'];
+            $link = $row['link'];
+            $desc = $row['description'];
+            $date = $row['date'];
+
+            echo "\n       <div class='project-content'>\n";
+            echo "            <a href='$link'>\n";
+            echo "                <h2 class='title-project'>$name</h2>\n";
+            echo "            </a>\n";
+            echo "            <p class='desc-project'>$desc</p>\n";
+            echo "            <span class='date-project'>$date</span>\n";
+            echo "            <hr>";
+            echo "\n        </div>";
+        }
     }
 }
