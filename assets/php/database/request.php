@@ -24,7 +24,7 @@ class Request
         $this->password = $password;
 
         $conn = new Connector();
-        $req = "SELECT password FROM user_data WHERE username ='$username'";
+        $req = "SELECT password FROM users WHERE username ='$username'";
 
         $result = $conn->mysqli->query($req, MYSQLI_USE_RESULT);
 
@@ -56,7 +56,7 @@ class Request
         $conn = new Connector();
 
         if ($password == $password_confirm) {
-            $req = "INSERT INTO user_data VALUES (id, '$username', '$password')";
+            $req = "INSERT INTO users VALUES (id, '$username', '$password')";
             $conn->mysqli->query($req, MYSQLI_USE_RESULT);
 
             header("Location: message/account_created.php");
