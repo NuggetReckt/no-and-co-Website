@@ -17,15 +17,6 @@ session_start();
                         ?>">Accueil</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="<?php echo "about.php" ?>" class="<?php
-                        if ($page == "about.php") {
-                            echo "active";
-                        } else {
-                            echo "not-active";
-                        }
-                        ?>">A propos</a>
-                    </li>
-                    <li class="navbar-item">
                         <a href="<?php echo "projects.php" ?>" class="<?php
                         if ($page == "projects.php") {
                             echo "active";

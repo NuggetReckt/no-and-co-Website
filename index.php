@@ -12,9 +12,75 @@ $pager->setHeader();
             </div>
             <div class="centered-content">
                 <div id="discover">
-                    <a href="about.php" id="discover-button">En savoir plus</a>
+                    <a href="#about" id="discover-button">En savoir plus</a>
                 </div>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="sub-content" id="about-content">
+                <div id="about">
+                    <h1 id="pres">Prise de son - Montage son - Mixage</h1>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
 <?php
 $pager->setFooter();
 ?>

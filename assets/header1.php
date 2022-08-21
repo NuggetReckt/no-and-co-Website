@@ -9,3 +9,4 @@
         <link rel="stylesheet" href="<?php echo "assets/css/main.css"?>">
         <link rel="stylesheet" href="<?php echo "assets/css/form.css"?>">
         <script src="https://kit.fontawesome.com/edcae05278.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
