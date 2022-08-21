@@ -1,7 +1,7 @@
 <?php
 require_once "assets/php/pager.php";
 require_once "assets/php/database/request.php";
-$pager = new Pager("Login");
+$pager = new PanelPager("Login");
 
 $pager->setHeader();
 
@@ -10,10 +10,9 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $request = new Request();
+    $request = new PanelRequest();
     $request->login($username, $password);
 }
-
 if (isset($_GET['error'])) {
     $err = $_GET['error'];
 
@@ -32,13 +31,6 @@ if (isset($_GET['error'])) {
         echo "                <span>Vous n'êtes pas connecté.</span>\n";
         echo "            </div>\n";
     }
-}
-if (isset($_GET['disconnected'])) {
-    echo "            <div class='pop-up-message' id='pop-up-success'>\n";
-    echo "                <span>Vous avez été déconnecté avec succès.</span>\n";
-    echo "            </div>\n";
-
-    session_unset();
 }
 ?>
             <div class="form" id="login-form">

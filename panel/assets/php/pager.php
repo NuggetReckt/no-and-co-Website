@@ -18,15 +18,15 @@ class PanelPager
 
     function setHeader(): void
     {
-        require_once "assets/panelheader1.php";
+        require_once "assets/header1.php";
         echo "\n        ";
         $this > $this->setTitle();
         echo "\n";
-        require_once "assets/panelheader2.php";
+        require_once "assets/header2.php";
     }
 
     function setFooter(): void
     {
-        require_once "assets/panelfooter.php";
+        require_once "assets/footer.php";
     }
 }

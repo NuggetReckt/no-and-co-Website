@@ -1,5 +1,5 @@
-            </main>
         </div>
+        </main>
         <div class="footer-content">
             <footer>
                 <span>Copyright © No&Co 2022</span><br>

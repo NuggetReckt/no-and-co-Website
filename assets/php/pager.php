@@ -20,7 +20,7 @@ class Pager
     {
         require_once "assets/header1.php";
         echo "\n        ";
-        $this > $this->setTitle();
+        $this->setTitle();
         echo "\n";
         require_once "assets/header2.php";
     }
@@ -28,5 +28,14 @@ class Pager
     function setFooter(): void
     {
         require_once "assets/footer.php";
+    }
+
+    function setPersonalSpaceHeader(): void
+    {
+        require_once "assets/header1.php";
+        echo "\n        ";
+        $this->setTitle();
+        echo "\n";
+        require_once "assets/psheader2.php";
     }
 }

@@ -33,7 +33,7 @@ label, input[type="submit"] {
     color: white;
 }
 
-input[type="text"], input[type="password"], input[type="submit"] {
+input[type="text"], input[type="password"], input[type="submit"], input[type="url"], input[type="date"] {
     border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
