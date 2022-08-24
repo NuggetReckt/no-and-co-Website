@@ -23,9 +23,9 @@ class Connector
         try {
             $this->mysqli = new mysqli($this->server, $this->username, $this->password, $this->database, $this->port);
         } catch (mysqli_sql_exception) {
-            echo "<div class='pop-up-message' id='pop-up-fail'>";
-            echo "    <span>Database Error: Database Offline.</span>\n";
-            echo "</div>";
+            echo "<div class='pop-up-message' id='pop-up-fail'>\n";
+            echo "    <span>Database Error: Database Unreachable.</span>\n";
+            echo "</div>\n";
         }
 
 

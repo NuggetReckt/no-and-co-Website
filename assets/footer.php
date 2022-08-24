@@ -7,16 +7,18 @@
             </footer>
         </div>
         <div id="scrollUp">
-            <a href="#top"><img src="/assets/images/to_top.png" width="150%" alt="to-top"/></a>
+            <a href="#top"><img src="/assets/images/to_top.png" width="130%" alt="to-top"/></a>
         </div>
         <script>
             jQuery(function () {
                 $(function () {
                     $(window).scroll(function () { //Fonction appelée quand on descend la page
-                        if ($(this).scrollTop() > 180) {  // Quand on est à 180 pixels du haut de page,
-                            $('#scrollUp').css('right', '5' + '0px');
+                        if ($(this).scrollTop() > 200) {  // Quand on est à 200 pixels du haut de page,
+                            $('#scrollUp')
+                                .css('opacity', '0.75')
                         } else {
-                            $('#scrollUp').removeAttr('style'); // Enlève les attributs CSS affectés par javascript
+                            $('#scrollUp')
+                                .removeAttr('style'); // Enlève les attributs CSS affectés par javascript
                         }
                     });
                 });
