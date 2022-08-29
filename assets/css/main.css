@@ -6,6 +6,7 @@ html {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 body {
@@ -102,8 +103,13 @@ Pages specific style
     text-align: center;
 }
 
+.main-slider {
+    min-height: 100vh;
+    height: auto;
+}
+
 #top-content-index {
-    padding: 275px 0;
+    padding: 32vh 0;
 }
 
 #title-logo {
@@ -135,10 +141,6 @@ Pages specific style
     background-color: #1394C3;
     border-color: white;
     color: #1a1a1a;
-}
-
-.centered-content {
-    margin-bottom: 50px;
 }
 
 /*-----------------------------------------
