@@ -35,8 +35,8 @@ session_start();
                         ?>">Les actus</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="<?php echo "contact_us.php" ?>" class="<?php
-                        if ($page == "contact_us.php") {
+                        <a href="<?php echo "contact.php" ?>" class="<?php
+                        if ($page == "contact.php") {
                             echo "active";
                         } else {
                             echo "not-active";

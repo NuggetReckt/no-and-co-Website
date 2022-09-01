@@ -62,7 +62,7 @@ span, p, a, h1, h2, h3 {
 .footer-content {
     text-align: center;
     color: white;
-    padding: 0;
+    padding: 50px 0 10px 0;
 }
 
 #scrollUp {
@@ -71,6 +71,19 @@ span, p, a, h1, h2, h3 {
     right: 40px;
     opacity: 0;
     transition: 1s;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1394C3;
+    border-radius: 2px;
 }
 
 /*-----------------------------------------
@@ -167,7 +180,6 @@ Pop-up style
 /*-----------------------------------------
 Animations
 -----------------------------------------*/
-
 
 
 /*-----------------------------------------
