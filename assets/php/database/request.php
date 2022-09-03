@@ -25,7 +25,7 @@ class Request
         $req = "SELECT * FROM users WHERE username ='$username';";
         $req2 = "SELECT username FROM users;";
 
-        if ($username != null && $password != null) {
+        if (!($username == null && $password == null)) {
 
             $result = $mysqli->query($req, MYSQLI_USE_RESULT);
 

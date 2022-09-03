@@ -1,8 +1,34 @@
 <?php
 require_once "assets/php/pager.php";
+require_once "assets/php/cutils.php";
 $pager = new Pager("Nous contacter");
 
 $pager->setHeader();
+
+if (isset($_POST["user-email"]) && isset($_POST["obj"]) && isset($_POST["msg"])) {
+
+    $user_mail = $_POST["user-email"];
+    $obj = $_POST["obj"];
+    $msg = $_POST["msg"];
+
+
+    $mail = new CUtils();
+    $mail->mail_sender($user_mail, $obj, $msg);
+}
+
+if (isset($_GET['error'])) {
+    $err = $_GET['error'];
+
+    if ($err == 2) {
+        echo "            <div class='pop-up-message' id='pop-up-fail'>\n";
+        echo "                <span>Les champs ne peuvent pas être vides !</span>\n";
+        echo "            </div>\n";
+    }
+}
+
+//For testing
+$email = new CUtils();
+$email->mail_sender("user_mail", "object", "message");
 ?>
             <div class="top-content" id="top-content-contact">
                 <div id="top-title">
@@ -16,11 +42,11 @@ $pager->setHeader();
                         <div class="form-content">
                             <h1>Nous contacter</h1>
                             <label>Mail<br>
-                                <input type="email" name="mail" class="input" placeholder="Votre adresse mail" required="">
+                                <input type="email" name="user-email" class="input" placeholder="Votre adresse mail" required="">
                             </label>
                             <br>
                             <label>Objet<br>
-                                <input type="text" name="object" class="input" placeholder="La nature de votre demande" required="">
+                                <input type="text" name="obj" class="input" placeholder="La nature de votre demande" required="">
                             </label>
                             <br>
                             <label>Message<br>
