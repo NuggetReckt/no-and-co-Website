@@ -24,11 +24,17 @@ if (isset($_GET['error'])) {
         echo "                <span>Les champs ne peuvent pas être vides !</span>\n";
         echo "            </div>\n";
     }
+    else {
+        echo "            <div class='pop-up-message' id='pop-up-fail'>\n";
+        echo "                <span>Une erreur inconnue est survenue.</span>\n";
+        echo "            </div>\n";
+    }
 }
-
-//For testing
-$email = new CUtils();
-$email->mail_sender("user_mail", "object", "message");
+if (isset($_GET['mail_sent'])) {
+    echo "            <div class='pop-up-message' id='pop-up-success'>\n";
+    echo "                <span>Mail envoyé avec succès.</span>\n";
+    echo "            </div>\n";
+}
 ?>
             <div class="top-content" id="top-content-contact">
                 <div id="top-title">

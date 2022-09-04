@@ -8,7 +8,8 @@
 
 class CUtils
 {
-    public string $admin_mail = "noel.morrow@no-and-co.com";
+    //public string $admin_mail = "noel.morrow@no-and-co.com";
+    public string $admin_mail = "no-reply@noskillworld.fr";
 
     public function mail_sender($user_mail, $obj, $msg): void
     {
@@ -41,19 +42,27 @@ class CUtils
             </body>
             ";
 
-            $msg_formatted_user = "";
+            //$msg_formatted_user = "";
 
             $headers = "From: no-reply@no-and-co.com";
             $headers .= "Content-Type: text/html; charset=utf-8";
 
-            //the mail the admin receives
-            mail($this->admin_mail, $obj, $msg_formatted_admin, $headers);
-            //the mail the user receives
-            mail($user_mail, $obj, $msg_formatted_user, $headers);
+            if (mail($this->admin_mail, $obj, $msg_formatted_admin, $headers)) {
+                header("Location: contact.php?mail_sent");
+            } else {
+                header("Location: contact.php?error");
+            }
 
+            /*
+            if ((mail($this->admin_mail, $obj, $msg_formatted_admin, $headers)) && mail($user_mail, $obj, $msg_formatted_user, $headers)) {
+                header("Location: contact.php?mail_sent");
+            } else {
+                header("Location: contact.php?error");
+            }
+            */
         } else {
             //Les champs ne peuvent pas être vides !
-            header("Location: login.php?error=2");
+            header("Location: contact.php?error=2");
         }
     }
 }
