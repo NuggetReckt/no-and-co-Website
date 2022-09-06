@@ -32,7 +32,7 @@ if (isset($_GET['error'])) {
 }
 if (isset($_GET['mail_sent'])) {
     echo "            <div class='pop-up-message' id='pop-up-success'>\n";
-    echo "                <span>Mail envoyé avec succès.</span>\n";
+    echo "                <span>Message envoyé avec succès.</span>\n";
     echo "            </div>\n";
 }
 ?>
