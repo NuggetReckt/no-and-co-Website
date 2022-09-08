@@ -17,13 +17,13 @@ session_start();
                         ?>">Accueil</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="<?php echo "projects.php" ?>" class="<?php
-                        if ($page == "projects.php") {
+                        <a href="<?php echo "films.php" ?>" class="<?php
+                        if ($page == "films.php") {
                             echo "active";
                         } else {
                             echo "not-active";
                         }
-                        ?>">Les projets</a>
+                        ?>">Les films</a>
                     </li>
                     <li class="navbar-item">
                         <a href="<?php echo "actus.php" ?>" class="<?php
@@ -32,7 +32,16 @@ session_start();
                         } else {
                             echo "not-active";
                         }
-                        ?>">Les actus</a>
+                        ?>">Actualités</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="<?php echo "music.php" ?>" class="<?php
+                        if ($page == "music.php") {
+                            echo "active";
+                        } else {
+                            echo "not-active";
+                        }
+                        ?>">Musiques</a>
                     </li>
                     <li class="navbar-item">
                         <a href="<?php echo "contact.php" ?>" class="<?php
