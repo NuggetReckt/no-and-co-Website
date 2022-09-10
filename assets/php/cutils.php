@@ -15,6 +15,11 @@ require 'PHPMailer/src/SMTP.php';
  */
 class CUtils
 {
+    public function __construct()
+    {
+        ini_set("default_charset", "UTF-8");
+    }
+
     //public string $admin_mail = "noel.morrow@no-and-co.com";
     public string $admin_mail = "corto.morrow@gmail.com";
     public string $auto_mail = "no-reply@no-and-co.com";
