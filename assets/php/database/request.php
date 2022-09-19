@@ -99,7 +99,8 @@ class Request
         }
     }
 
-    function get_actus(): void {
+    function get_actus(): void
+    {
         $req = "SELECT * FROM actus;";
 
         $conn = new Connector();
@@ -120,6 +121,22 @@ class Request
             echo "                    <hr>\n";
             echo "                </div>";
             echo "\n";
+        }
+    }
+
+    function get_musics(): void
+    {
+        $req = "SELECT * FROM musics;";
+
+        $conn = new Connector();
+        $mysqli = $conn->mysqli;
+
+        $result = $mysqli->query($req, MYSQLI_USE_RESULT);
+
+        while ($row = mysqli_fetch_array($result)) {
+            $link = $row['link'];
+
+            echo $link;
         }
     }
 }
