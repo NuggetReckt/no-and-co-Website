@@ -13,6 +13,7 @@ require 'PHPMailer/src/SMTP.php';
  * @property $obj
  * @property $msg
  */
+
 class CUtils
 {
     public function __construct()
@@ -33,14 +34,21 @@ class CUtils
         $mailer1 = new PHPMailer(true);
         //$mailer2 = new PHPMailer(true);
 
-        //$username = $this->auto_mail;
-        $username = "corto.m@noskillworld.fr";
-        $host = "mail49.lwspanel.com"; //to be filled
-        $passwd = "Upk6d7sx"; //to be filled
+        /*
+        $username = $this->auto_mail;
+        $username = "";
+        $host = "";
+        $passwd = "";
+        */
+
+        //For testing
+        $username = "";
+        $host = "";
+        $passwd = "";
+
         $port = 465;
 
         if (!($user_mail == null && $obj == null && $msg == null)) {
-
             try {
                 $mailer1->SMTPDebug = SMTP::DEBUG_SERVER;
                 //$mailer2->SMTPDebug = SMTP::DEBUG_SERVER;
