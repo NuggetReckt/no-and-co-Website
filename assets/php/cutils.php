@@ -8,22 +8,25 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
+require_once "database/secrets.php";
+
 /**
  * @property $user_mail
  * @property $obj
  * @property $msg
  */
-
 class CUtils
 {
+    private string $admin_mail = ADMIN_MAIL;
+    private string $auto_mail = AUTO_MAIL;
+    private string $passwd = ADMIN_PASS;
+    private string $host = "localhost";
+    private int $port = 465;
+
     public function __construct()
     {
         ini_set("default_charset", "UTF-8");
     }
-
-    //public string $admin_mail = "noel.morrow@no-and-co.com";
-    public string $admin_mail = "corto.morrow@gmail.com";
-    public string $auto_mail = "no-reply@no-and-co.com";
 
     public function mail_sender($user_mail, $obj, $msg): void
     {
@@ -31,60 +34,45 @@ class CUtils
         $this->obj = $obj;
         $this->msg = $msg;
 
+
         $mailer1 = new PHPMailer(true);
-        //$mailer2 = new PHPMailer(true);
-
-        /*
-        $username = $this->auto_mail;
-        $username = "";
-        $host = "";
-        $passwd = "";
-        */
-
-        //For testing
-        $username = "";
-        $host = "";
-        $passwd = "";
-
-        $port = 465;
 
         if (!($user_mail == null && $obj == null && $msg == null)) {
             try {
                 $mailer1->SMTPDebug = SMTP::DEBUG_SERVER;
-                //$mailer2->SMTPDebug = SMTP::DEBUG_SERVER;
                 $mailer1->isSMTP();
-                //$mailer2->isSMTP();
-                $mailer1->Host = $host;
-                //$mailer2->Host = $host;
+                $mailer1->Host = $this->host;
                 $mailer1->SMTPAuth = true;
-                //$mailer2->SMTPAuth = true;
-                $mailer1->Username = $username;
-                //$mailer2->Username = $username;
-                $mailer1->Password = $passwd;
-                //$mailer2->Password = $passwd;
+                $mailer1->Username = $this->auto_mail;
+                $mailer1->Password = $this->passwd;
                 $mailer1->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                //$mailer2->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                $mailer1->Port = $port;
-                //$mailer2->Port = $port;
-
-                $mailer1->setFrom($username);
-                //$mailer2->setFrom($this->auto_mail);
+                $mailer1->Port = $this->port;
+                $mailer1->setFrom($this->auto_mail);
                 $mailer1->addAddress($this->admin_mail);
-                //$mailer2->addAddress($this->user_mail);
-
-                $mailer1->isHTML(true);
-                //$mailer2->isHTML(true);
+                $mailer1->isHTML();
                 $mailer1->Subject = $obj;
-                //$mailer2->Subject = "Récapitulatif de votre message:". $obj;
                 $mailer1->Body = $this->setAdminBody();
+
+                //$mailer2->SMTPDebug = SMTP::DEBUG_SERVER;
+                //$mailer2->isSMTP();
+                //$mailer2->Host = $this->host;
+                //$mailer2->SMTPAuth = true;
+                //$mailer2->Username = $this->username;
+                //$mailer2->Password = $this->passwd;
+                //$mailer2->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                //$mailer2->Port = $this->port;
+                //$mailer2->setFrom($this->auto_mail);
+                //$mailer2->addAddress($this->user_mail);
+                //$mailer2->isHTML();
+                //$mailer2->Subject = "Récapitulatif de votre message:". $obj;
                 //$mailer2->Body = $this->setUserBody();
 
                 $mailer1->send();
                 //$mailer2->send();
+
                 header("Location: contact.php?mail_sent");
             } catch (Exception $e) {
                 header("Location: contact.php?error");
-                //echo "Message could not be sent. Mailer Error: {$mailer1->ErrorInfo}";
             }
         } else {
             //Les champs ne peuvent pas être vides !

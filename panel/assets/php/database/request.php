@@ -27,21 +27,19 @@ class PanelRequest
         $this->username = $username;
         $this->password = $password;
 
-        $conn = new Connector();
-        $mysqli = $conn->mysqli;
-
         $req = "SELECT password FROM admins WHERE username ='$username';";
         $req2 = "SELECT username FROM admins;";
 
+        $conn = new Connector();
+
         if ($username != null && $password != null) {
+            $result = $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
+            $result2 = $conn->dbRun($req2, [])->fetchAll(PDO::FETCH_ASSOC);
 
-            $result = $mysqli->query($req, MYSQLI_USE_RESULT);
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                $user_password = $row['password'];
+            foreach ($result as $i => $value) {
+                $user_password = $value['password'];
 
                 if ($password == $user_password) {
-
                     $_SESSION['admin'] = $username;
 
                     //echo "Mot de passe correct.";
@@ -56,10 +54,8 @@ class PanelRequest
                 }
             }
 
-            $result2 = $conn->mysqli->query($req2, MYSQLI_USE_RESULT);
-
-            while ($row = mysqli_fetch_assoc($result2)) {
-                $user_username = $row['username'];
+            foreach ($result2 as $i => $value) {
+                $user_username = $value['username'];
 
                 if ($username != $user_username) {
                     header("Location: login.php?error=1");
@@ -71,7 +67,6 @@ class PanelRequest
             header("Location: login.php?error=2");
             session_abort();
         }
-
         unset($username);
         unset($password);
         unset($user_password);
@@ -88,7 +83,7 @@ class PanelRequest
         if ($username != null && $password != null) {
             if ($password == $password_confirm) {
                 $req = "INSERT INTO users VALUES (id, '$username', '$password');";
-                $conn->mysqli->query($req, MYSQLI_USE_RESULT);
+                $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
 
                 header("Location: add_account.php?account_created");
             } else {
@@ -111,7 +106,7 @@ class PanelRequest
         $conn = new Connector();
         $req = "INSERT INTO projects (name, link, description, date) VALUES ('$project_name', '$project_link', '$project_desc', '$project_date');";
 
-        $conn->mysqli->query($req, MYSQLI_USE_RESULT);
+        $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
 
         header("Location: add_project.php?project_created");
     }
@@ -125,7 +120,7 @@ class PanelRequest
         $conn = new Connector();
         $req = "INSERT INTO actus (name, description, date) VALUES ('$actu_name', '$actu_desc', '$actu_date');";
 
-        $conn->mysqli->query($req, MYSQLI_USE_RESULT);
+        $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
 
         header("Location: add_actu.php?actu_created");
     }

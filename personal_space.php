@@ -30,9 +30,7 @@ if (isset($_GET['logged'])) {
 ?>
             <div class="top-content" id="top-content-ps">
                 <div>
-                    <?php
-                    $psutils->get_files();
-                    ?>
+                    <?php $psutils->get_files()?>
                 </div>
             </div>
 <?php

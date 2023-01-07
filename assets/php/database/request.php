@@ -19,27 +19,23 @@ class Request
         $this->username = $username;
         $this->password = $password;
 
-        $conn = new Connector();
-        $mysqli = $conn->mysqli;
-
         $req = "SELECT * FROM users WHERE username ='$username';";
         $req2 = "SELECT username FROM users;";
 
+        $conn = new Connector();
+
         if (!($username == null && $password == null)) {
+            $result = $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
+            $result2 = $conn->dbRun($req2, [])->fetchAll(PDO::FETCH_ASSOC);
 
-            $result = $mysqli->query($req, MYSQLI_USE_RESULT);
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                $user_password = $row['password'];
+            foreach ($result as $i => $value) {
+                $user_password = $value['password'];
 
                 if ($password == $user_password) {
-
                     $_SESSION['user'] = $username;
 
                     sleep(1);
-
                     //echo "Mot de passe correct.";
-
                     header("Location: personal_space.php?logged");
                 } else {
                     sleep(1);
@@ -49,10 +45,8 @@ class Request
                 }
             }
 
-            $result2 = $conn->mysqli->query($req2, MYSQLI_USE_RESULT);
-
-            while ($row = mysqli_fetch_assoc($result2)) {
-                $user_username = $row['username'];
+            foreach ($result2 as $i => $value) {
+                $user_username = $value['username'];
 
                 if ($username != $user_username) {
                     header("Location: login.php?error=1");
@@ -73,17 +67,14 @@ class Request
     function get_projects(): void
     {
         $req = "SELECT * FROM projects ORDER BY date DESC;";
-
         $conn = new Connector();
-        $mysqli = $conn->mysqli;
+        $result = $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
 
-        $result = $mysqli->query($req, MYSQLI_USE_RESULT);
-
-        while ($row = mysqli_fetch_array($result)) {
-            $name = $row['name'];
-            $link = $row['link'];
-            $desc = $row['description'];
-            $date = $row['date'];
+        foreach ($result as $i => $value) {
+            $link = $value['link'];
+            $name = $value['name'];
+            $desc = $value['description'];
+            $date = $value['date'];
 
             echo "\n";
             echo "                <div class='project-content'>\n";
@@ -92,7 +83,7 @@ class Request
             echo "                    </a>\n";
             //echo "                    <img class='project-img' src='/assets/images/test.jpg' alt='project-img'>\n";
             echo "                    <p class='project-desc'>$desc</p>\n";
-            echo "                    <span class='project-date'>$date</span>\n";
+            echo "                    <span class='project-date'>Sorti le $date</span>\n";
             echo "                    <hr>\n";
             echo "                </div>";
             echo "\n";
@@ -101,17 +92,14 @@ class Request
 
     function get_actus(): void
     {
-        $req = "SELECT * FROM actus;";
-
+        $req = "SELECT * FROM actus ORDER BY date DESC;";
         $conn = new Connector();
-        $mysqli = $conn->mysqli;
+        $result = $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
 
-        $result = $mysqli->query($req, MYSQLI_USE_RESULT);
-
-        while ($row = mysqli_fetch_array($result)) {
-            $name = $row['name'];
-            $desc = $row['description'];
-            $date = $row['date'];
+        foreach ($result as $i => $value) {
+            $name = $value['name'];
+            $desc = $value['description'];
+            $date = $value['date'];
 
             echo "\n";
             echo "                <div class='actu-content'>\n";
@@ -126,17 +114,24 @@ class Request
 
     function get_musics(): void
     {
-        $req = "SELECT * FROM musics;";
-
+        $req = "SELECT * FROM musics ORDER BY date DESC;";
         $conn = new Connector();
-        $mysqli = $conn->mysqli;
+        $result = $conn->dbRun($req, [])->fetchAll(PDO::FETCH_ASSOC);
 
-        $result = $mysqli->query($req, MYSQLI_USE_RESULT);
+        foreach ($result as $i => $value) {
+            $link = $value['link'];
 
-        while ($row = mysqli_fetch_array($result)) {
-            $link = $row['link'];
-
+            echo "\n";
             echo $link;
+            echo "\n";
+
+            echo "$result";
+
+            if ($result == null) {
+                echo "\n";
+                echo "<span>Aucun résultat.</span>";
+                echo "\n";
+            }
         }
     }
 }
